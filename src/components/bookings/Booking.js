@@ -54,7 +54,7 @@ const Booking = ({myBooking:bookings, removeToBooking, clearAllBookings}) => {
                         
                         {/* TABLE FOOTER */}
                     <tfoot>
-                        <TableFooter bookings={bookings}/>
+                        <TableFooter bookings={bookings} clearAllBookings={clearAllBookings}/>
                     </tfoot>
                 </table>
 

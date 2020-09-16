@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const TableFooter = ({ bookings }) => {
+const TableFooter = ({ bookings, clearAllBookings }) => {
     const total = bookings.bookings.reduce((result, booking) => result + booking.price*booking.quantity, 0)
 
     const onCheckout = () => {
@@ -17,19 +17,17 @@ const TableFooter = ({ bookings }) => {
         })
             .then(response => {
                 console.log(response.status)
-                // if (response.status === 400) {
-                //     setError({
-                //         ...error,
-                //         hasError: true
-                //     })
-                // } else {
-                //     setError({
-                //         hasError: true,
-                //         color: "success",
-                //         message: "Please login to continue"
-                //     })
-                //     return response.json()
-                // }
+                if (response.status === 400) {
+                    console.log("some error occur")
+                } else {
+                    // setError({
+                    //     hasError: true,
+                    //     color: "success",
+                    //     message: "Please login to continue"
+                    // })
+                    // return response.json()
+                    clearAllBookings()
+                }
             })
             .then(data => {
                 console.log(data)
