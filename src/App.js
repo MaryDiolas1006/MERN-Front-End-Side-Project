@@ -50,11 +50,19 @@ function App() {
     }
 
     const removeToBooking = id => {
+      console.log("id = ", id)
     let updatedBookings = myBooking.bookings.filter(booking => booking.movieId !== id)
+    console.log("updatedBookings = ", updatedBookings)
     setMyBooking({
         bookings: updatedBookings 
       })
   }
+
+    const clearAllBookings = () => {
+      setMyBooking({
+        bookings: [] 
+      })
+    }
 
 
 
@@ -115,7 +123,7 @@ function App() {
 
         {/* Booking */}
         <Route exact path='/booking'>
-              <Booking myBooking={myBooking} removeToBooking={removeToBooking}/>
+              <Booking myBooking={myBooking} removeToBooking={removeToBooking} clearAllBookings={clearAllBookings}/>
         </Route>
 
         {/* Transaction */}
