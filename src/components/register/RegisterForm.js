@@ -106,7 +106,7 @@ const RegisterForm = (props) => {
             
             <div className="form-group row mb-0">
                 <div className="col-md-6 offset-md-4">
-                    <Link to='login' id="register" type="submit" className="btn btn-primary">
+                    <Link onClick={handleSubmit} to='login' id="register" type="submit" className="btn btn-primary">
                         Register
                     </Link>
                 </div>
